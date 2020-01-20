@@ -3,10 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC49ABE223D63BCD00CD6E02 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49ABD823D63BCD00CD6E02 /* Category+CoreDataClass.swift */; };
+		AC49ABE323D63BCD00CD6E02 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49ABD923D63BCD00CD6E02 /* Category+CoreDataProperties.swift */; };
+		AC49ABE423D63BCD00CD6E02 /* SubCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49ABDA23D63BCD00CD6E02 /* SubCategory+CoreDataClass.swift */; };
+		AC49ABE523D63BCD00CD6E02 /* SubCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49ABDB23D63BCD00CD6E02 /* SubCategory+CoreDataProperties.swift */; };
+		AC49ABE623D63BCD00CD6E02 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49ABDC23D63BCD00CD6E02 /* Product+CoreDataClass.swift */; };
+		AC49ABE723D63BCD00CD6E02 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49ABDD23D63BCD00CD6E02 /* Product+CoreDataProperties.swift */; };
+		AC49ABE823D63BCD00CD6E02 /* Variants+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49ABDE23D63BCD00CD6E02 /* Variants+CoreDataClass.swift */; };
+		AC49ABE923D63BCD00CD6E02 /* Variants+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49ABDF23D63BCD00CD6E02 /* Variants+CoreDataProperties.swift */; };
+		AC49ABEA23D63BCD00CD6E02 /* Ranking+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49ABE023D63BCD00CD6E02 /* Ranking+CoreDataClass.swift */; };
+		AC49ABEB23D63BCD00CD6E02 /* Ranking+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49ABE123D63BCD00CD6E02 /* Ranking+CoreDataProperties.swift */; };
 		ACA0353F23D3158200BB1D3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0353E23D3158200BB1D3B /* AppDelegate.swift */; };
 		ACA0354123D3158200BB1D3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0354023D3158200BB1D3B /* SceneDelegate.swift */; };
 		ACA0354323D3158200BB1D3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0354223D3158200BB1D3B /* ViewController.swift */; };
@@ -45,6 +55,16 @@
 		6ABDBE411F2048FC64F7F714 /* Pods-eCommerceAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eCommerceAssignment.release.xcconfig"; path = "Target Support Files/Pods-eCommerceAssignment/Pods-eCommerceAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		9826495D80D97B2B2A17A637 /* Pods-eCommerceAssignmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eCommerceAssignmentUITests.debug.xcconfig"; path = "Target Support Files/Pods-eCommerceAssignmentUITests/Pods-eCommerceAssignmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C48A28A26E7A6DF413769FD /* Pods-eCommerceAssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eCommerceAssignmentTests.release.xcconfig"; path = "Target Support Files/Pods-eCommerceAssignmentTests/Pods-eCommerceAssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC49ABD823D63BCD00CD6E02 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AC49ABD923D63BCD00CD6E02 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AC49ABDA23D63BCD00CD6E02 /* SubCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AC49ABDB23D63BCD00CD6E02 /* SubCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AC49ABDC23D63BCD00CD6E02 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AC49ABDD23D63BCD00CD6E02 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AC49ABDE23D63BCD00CD6E02 /* Variants+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variants+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AC49ABDF23D63BCD00CD6E02 /* Variants+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variants+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AC49ABE023D63BCD00CD6E02 /* Ranking+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ranking+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AC49ABE123D63BCD00CD6E02 /* Ranking+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ranking+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ACA0353B23D3158200BB1D3B /* eCommerceAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eCommerceAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA0353E23D3158200BB1D3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA0354023D3158200BB1D3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +133,6 @@
 				9826495D80D97B2B2A17A637 /* Pods-eCommerceAssignmentUITests.debug.xcconfig */,
 				B53202A60A41ADF22EC164AA /* Pods-eCommerceAssignmentUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,6 +161,16 @@
 		ACA0353D23D3158200BB1D3B /* eCommerceAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				AC49ABD823D63BCD00CD6E02 /* Category+CoreDataClass.swift */,
+				AC49ABD923D63BCD00CD6E02 /* Category+CoreDataProperties.swift */,
+				AC49ABDA23D63BCD00CD6E02 /* SubCategory+CoreDataClass.swift */,
+				AC49ABDB23D63BCD00CD6E02 /* SubCategory+CoreDataProperties.swift */,
+				AC49ABDC23D63BCD00CD6E02 /* Product+CoreDataClass.swift */,
+				AC49ABDD23D63BCD00CD6E02 /* Product+CoreDataProperties.swift */,
+				AC49ABDE23D63BCD00CD6E02 /* Variants+CoreDataClass.swift */,
+				AC49ABDF23D63BCD00CD6E02 /* Variants+CoreDataProperties.swift */,
+				AC49ABE023D63BCD00CD6E02 /* Ranking+CoreDataClass.swift */,
+				AC49ABE123D63BCD00CD6E02 /* Ranking+CoreDataProperties.swift */,
 				ACA0353E23D3158200BB1D3B /* AppDelegate.swift */,
 				ACA0354023D3158200BB1D3B /* SceneDelegate.swift */,
 				ACA0354223D3158200BB1D3B /* ViewController.swift */,
@@ -393,9 +422,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC49ABE723D63BCD00CD6E02 /* Product+CoreDataProperties.swift in Sources */,
+				AC49ABE423D63BCD00CD6E02 /* SubCategory+CoreDataClass.swift in Sources */,
+				AC49ABE823D63BCD00CD6E02 /* Variants+CoreDataClass.swift in Sources */,
 				ACA0354323D3158200BB1D3B /* ViewController.swift in Sources */,
+				AC49ABE523D63BCD00CD6E02 /* SubCategory+CoreDataProperties.swift in Sources */,
+				AC49ABE923D63BCD00CD6E02 /* Variants+CoreDataProperties.swift in Sources */,
+				AC49ABEA23D63BCD00CD6E02 /* Ranking+CoreDataClass.swift in Sources */,
+				AC49ABE323D63BCD00CD6E02 /* Category+CoreDataProperties.swift in Sources */,
 				ACA0353F23D3158200BB1D3B /* AppDelegate.swift in Sources */,
+				AC49ABE623D63BCD00CD6E02 /* Product+CoreDataClass.swift in Sources */,
 				ACA0354923D3158300BB1D3B /* eCommerceAssignment.xcdatamodeld in Sources */,
+				AC49ABE223D63BCD00CD6E02 /* Category+CoreDataClass.swift in Sources */,
+				AC49ABEB23D63BCD00CD6E02 /* Ranking+CoreDataProperties.swift in Sources */,
 				ACA0354123D3158200BB1D3B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
