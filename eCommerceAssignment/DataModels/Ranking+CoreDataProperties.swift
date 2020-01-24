@@ -1,8 +1,8 @@
 //
-//  SubCategory+CoreDataProperties.swift
+//  Ranking+CoreDataProperties.swift
 //  eCommerceAssignment
 //
-//  Created by Guest User on 21/01/20.
+//  Created by Guest User on 24/01/20.
 //  Copyright © 2020 Firoz Khan. All rights reserved.
 //
 //
@@ -11,20 +11,19 @@ import Foundation
 import CoreData
 
 
-extension SubCategory {
+extension Ranking {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<SubCategory> {
-        return NSFetchRequest<SubCategory>(entityName: "SubCategory")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Ranking> {
+        return NSFetchRequest<Ranking>(entityName: "Ranking")
     }
 
-    @NSManaged public var id: Int64
-    @NSManaged public var name: String
+    @NSManaged public var rank: String?
     @NSManaged public var products: NSSet?
 
 }
 
 // MARK: Generated accessors for products
-extension SubCategory {
+extension Ranking {
 
     @objc(addProductsObject:)
     @NSManaged public func addToProducts(_ value: Product)

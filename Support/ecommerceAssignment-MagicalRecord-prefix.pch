@@ -1,0 +1,15 @@
+//
+//  ecommerceAssignment-MagicalRecord-prefix.pch
+//  eCommerceAssignment
+//
+//  Created by Guest User on 22/01/20.
+//  Copyright © 2020 Firoz Khan. All rights reserved.
+//
+
+#ifndef ecommerceAssignment_MagicalRecord_prefix_h
+#define ecommerceAssignment_MagicalRecord_prefix_h
+
+
+#endif /* ecommerceAssignment_MagicalRecord_prefix_h */
+#define MR_SHORTHAND 0
+#import “CoreData+MagicalRecord.h”

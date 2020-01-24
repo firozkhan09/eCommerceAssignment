@@ -2,7 +2,7 @@
 //  Product+CoreDataProperties.swift
 //  eCommerceAssignment
 //
-//  Created by Guest User on 21/01/20.
+//  Created by Guest User on 24/01/20.
 //  Copyright © 2020 Firoz Khan. All rights reserved.
 //
 //
@@ -17,32 +17,16 @@ extension Product {
         return NSFetchRequest<Product>(entityName: "Product")
     }
 
-    @NSManaged public var id: Int64
-    @NSManaged public var name: String
     @NSManaged public var dateAdded: Date?
-    @NSManaged public var tax: NSObject?
+    @NSManaged public var id: Int64
+    @NSManaged public var name: String?
     @NSManaged public var orderedCount: Int64
-    @NSManaged public var viewedCount: Int64
     @NSManaged public var sharedCount: Int64
-    @NSManaged public var varients: NSSet?
+    @NSManaged public var tax: NSObject?
+    @NSManaged public var viewedCount: Int64
+    @NSManaged public var category: Category?
     @NSManaged public var rankings: NSSet?
-
-}
-
-// MARK: Generated accessors for varients
-extension Product {
-
-    @objc(addVarientsObject:)
-    @NSManaged public func addToVarients(_ value: Variants)
-
-    @objc(removeVarientsObject:)
-    @NSManaged public func removeFromVarients(_ value: Variants)
-
-    @objc(addVarients:)
-    @NSManaged public func addToVarients(_ values: NSSet)
-
-    @objc(removeVarients:)
-    @NSManaged public func removeFromVarients(_ values: NSSet)
+    @NSManaged public var varients: NSSet?
 
 }
 
@@ -60,5 +44,22 @@ extension Product {
 
     @objc(removeRankings:)
     @NSManaged public func removeFromRankings(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for varients
+extension Product {
+
+    @objc(addVarientsObject:)
+    @NSManaged public func addToVarients(_ value: Variant)
+
+    @objc(removeVarientsObject:)
+    @NSManaged public func removeFromVarients(_ value: Variant)
+
+    @objc(addVarients:)
+    @NSManaged public func addToVarients(_ values: NSSet)
+
+    @objc(removeVarients:)
+    @NSManaged public func removeFromVarients(_ values: NSSet)
 
 }

@@ -1,0 +1,106 @@
+//
+//  AppResourceManager.swift
+//  eCommerceAssignment
+//
+//  Created by Guest User on 24/01/20.
+//  Copyright © 2020 Firoz Khan. All rights reserved.
+//
+
+import Foundation
+import CoreData
+
+class AppResourceManager: NSObject {
+    
+    static let sharedAppResourceManager = AppResourceManager()
+    
+    public func sharedInstance()-> AppResourceManager{
+        return AppResourceManager.sharedAppResourceManager
+    }
+    
+    public func setupInitialApplicationData(){
+        if let initialDict = getJSONDataDictionary() as? NSDictionary, let categories = initialDict["categories"] as? [[String: Any]]{
+            //Add categories to DB
+            insertCategories(forCategorysArray: categories)
+        }
+    }
+    
+    private func getJSONDataDictionary()-> NSDictionary{
+        if let path = Bundle.main.path(forResource: "InitialData", ofType: "json") {
+            do {
+                  let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                  let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                  if let jsonResult = jsonResult as? NSDictionary{
+                            // do stuff
+                    return jsonResult
+                  }
+              } catch {
+                   // handle error
+              }
+        }
+        return NSDictionary()
+    }
+    
+    private func insertCategories(forCategorysArray categories: [[String:Any]]){
+        for eachCategory in categories {
+            let categoryObject = Category.mr_findFirstOrCreate(byAttribute: "id", withValue: eachCategory["id"] as! Int64)
+            
+            if categoryObject.isInserted{
+                categoryObject.name = (eachCategory["name"] as! String)
+                
+                let childCategoryIds = eachCategory["child_categories"] as? [NSNumber]
+                if ((childCategoryIds?.count) != 0){
+                    //Add Child Categories
+                    let childCategorySet = findOrCreateChildCategorySet(forCategory: categoryObject, withChildCategoryIds: childCategoryIds!)
+                    categoryObject.addToChildCategories(childCategorySet)
+                }
+                else{
+                    let productSet = findOrCreateProductSet(forCategory: categoryObject, withProducts: eachCategory["products"] as! [[String : Any]])
+                   categoryObject.addToProducts(productSet)
+                }
+            }
+            
+            
+        }
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
+    }
+    
+    private func findOrCreateChildCategorySet(forCategory parentCategory: Category, withChildCategoryIds childIDs:[NSNumber])->NSSet{
+        let childCategories = NSMutableArray()
+        for childID in childIDs{
+            let childCategoryObject = Category.mr_findFirstOrCreate(byAttribute: "id", withValue: childID)
+            childCategoryObject.parentCategory = parentCategory
+            childCategories.add(childCategoryObject)
+        }
+        return NSSet(array: childCategories as! [Any])
+    }
+    
+    private func findOrCreateProductSet(forCategory category: Category, withProducts products:[[String:Any]])->NSSet{
+        let productObjectArray = NSMutableArray()
+        for product in products{
+            let productObject = Product.mr_findFirstOrCreate(byAttribute: "id", withValue: product["id"] as! Int64)
+            if productObject.isInserted{
+                productObject.name = product["name"] as? String
+                productObject.tax = product["tax"] as? NSObject
+                productObject.category = category
+                let variantSet = findOrCreateProductVariantSet(forVariants: product["variants"]! as! [[String : Any]])
+                productObject.addToVarients(variantSet)
+            }
+            productObjectArray.add(productObject)
+        }
+        return NSSet(array: productObjectArray as! [Any])
+    }
+    
+    private func findOrCreateProductVariantSet(forVariants variants: [[String:Any]])->NSSet{
+        let verientObjectArray = NSMutableArray()
+        for verient in variants{
+            let variantObject = Variant.mr_findFirstOrCreate(byAttribute: "id", withValue: verient["id"] as! Int64)
+            if variantObject.isInserted{
+                variantObject.color = verient["color"] as? String
+                variantObject.size = verient["size"] as? Int16 ?? 0
+                variantObject.price = verient["price"] as? Int64 ?? 0
+            }
+            verientObjectArray.add(variantObject)
+        }
+        return NSSet(array: verientObjectArray as! [Any])
+    }
+}
