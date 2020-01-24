@@ -13,17 +13,24 @@ class AppResourceManager: NSObject {
     
     static let sharedAppResourceManager = AppResourceManager()
     
+// MARK: Public Functions
+    
     public func sharedInstance()-> AppResourceManager{
         return AppResourceManager.sharedAppResourceManager
     }
     
     public func setupInitialApplicationData(){
-        if let initialDict = getJSONDataDictionary() as? NSDictionary, let categories = initialDict["categories"] as? [[String: Any]]{
+        if let initialDict = getJSONDataDictionary() as? NSDictionary, let categories = initialDict["categories"] as? [[String: Any]], let rankings = initialDict["rankings"] as? [[String: Any]] {
             //Add categories to DB
             insertCategories(forCategorysArray: categories)
+            insertRankings(forRankings: rankings)
+            
+            //Save all mapped data to DB
+            NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
         }
     }
     
+// MARK: Utility Functions
     private func getJSONDataDictionary()-> NSDictionary{
         if let path = Bundle.main.path(forResource: "InitialData", ofType: "json") {
             do {
@@ -58,10 +65,34 @@ class AppResourceManager: NSObject {
                    categoryObject.addToProducts(productSet)
                 }
             }
-            
-            
         }
-        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
+    }
+    
+    
+    private func insertRankings(forRankings rankings:[[String:Any]]){
+        for eachRanking in rankings{
+            let rankingObject = Ranking.mr_findFirstOrCreate(byAttribute: "rank", withValue: eachRanking["ranking"] as! String)
+            
+            if let productsByRanking = eachRanking["products"] as? [[String:Any]]{
+                let productsArray = NSMutableArray()
+                for eachProductByRanking in productsByRanking{
+                    let productObject = Product.mr_findFirstOrCreate(byAttribute: "id", withValue: eachProductByRanking["id"] as! Int64)
+                    switch eachRanking["ranking"] as! String {
+                    case "Most Viewed Products":
+                        productObject.viewedCount = eachProductByRanking["view_count"] as! Int64
+                    case "Most OrdeRed Products":
+                        productObject.orderedCount = eachProductByRanking["order_count"] as! Int64
+                    case "Most ShaRed Products":
+                        productObject.viewedCount = eachProductByRanking["shares"] as! Int64
+                    default:
+                        continue
+                    }
+                    //Add complet Product Object to array
+                    productsArray.add(productObject)
+                }
+                rankingObject.addToProducts(NSSet(array: productsArray as! [Any]))
+            }
+        }
     }
     
     private func findOrCreateChildCategorySet(forCategory parentCategory: Category, withChildCategoryIds childIDs:[NSNumber])->NSSet{

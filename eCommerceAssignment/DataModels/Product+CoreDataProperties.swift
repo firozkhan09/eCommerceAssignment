@@ -2,7 +2,7 @@
 //  Product+CoreDataProperties.swift
 //  eCommerceAssignment
 //
-//  Created by Guest User on 24/01/20.
+//  Created by Guest User on 25/01/20.
 //  Copyright © 2020 Firoz Khan. All rights reserved.
 //
 //
@@ -25,25 +25,7 @@ extension Product {
     @NSManaged public var tax: NSObject?
     @NSManaged public var viewedCount: Int64
     @NSManaged public var category: Category?
-    @NSManaged public var rankings: NSSet?
     @NSManaged public var varients: NSSet?
-
-}
-
-// MARK: Generated accessors for rankings
-extension Product {
-
-    @objc(addRankingsObject:)
-    @NSManaged public func addToRankings(_ value: Ranking)
-
-    @objc(removeRankingsObject:)
-    @NSManaged public func removeFromRankings(_ value: Ranking)
-
-    @objc(addRankings:)
-    @NSManaged public func addToRankings(_ values: NSSet)
-
-    @objc(removeRankings:)
-    @NSManaged public func removeFromRankings(_ values: NSSet)
 
 }
 

@@ -2,7 +2,7 @@
 //  Variant+CoreDataProperties.swift
 //  eCommerceAssignment
 //
-//  Created by Guest User on 24/01/20.
+//  Created by Guest User on 25/01/20.
 //  Copyright © 2020 Firoz Khan. All rights reserved.
 //
 //

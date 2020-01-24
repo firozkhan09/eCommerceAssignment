@@ -16,12 +16,11 @@
         <attribute name="tax" optional="YES" attributeType="Transformable"/>
         <attribute name="viewedCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="products" inverseEntity="Category"/>
-        <relationship name="rankings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ranking" inverseName="products" inverseEntity="Ranking"/>
         <relationship name="varients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Variant"/>
     </entity>
     <entity name="Ranking" representedClassName="Ranking" syncable="YES" codeGenerationType="class">
         <attribute name="rank" optional="YES" attributeType="String"/>
-        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product" inverseName="rankings" inverseEntity="Product"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product"/>
     </entity>
     <entity name="Variant" representedClassName="Variant" syncable="YES" codeGenerationType="class">
         <attribute name="color" optional="YES" attributeType="String"/>
@@ -31,7 +30,7 @@
     </entity>
     <elements>
         <element name="Category" positionX="-82.625" positionY="-158.3515625" width="128" height="118"/>
-        <element name="Product" positionX="-236.2109375" positionY="116.421875" width="128" height="193"/>
+        <element name="Product" positionX="-236.2109375" positionY="116.421875" width="128" height="178"/>
         <element name="Ranking" positionX="118.9765625" positionY="116.8203125" width="128" height="73"/>
         <element name="Variant" positionX="-27" positionY="81" width="128" height="103"/>
     </elements>

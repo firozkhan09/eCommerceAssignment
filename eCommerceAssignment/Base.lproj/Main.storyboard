@@ -10,7 +10,6 @@
         <!--Navigation Controller-->
         <scene sceneID="xTK-oS-NBW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bbr-D6-fhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="A1D-HA-aJO" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3iF-RP-VxT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -20,13 +19,14 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="od3-58-Lva"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bbr-D6-fhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1946" y="-34"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="eCommerceAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="eCommerceAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
