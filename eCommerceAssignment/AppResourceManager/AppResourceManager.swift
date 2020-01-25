@@ -13,7 +13,7 @@ class AppResourceManager: NSObject {
     
     static let sharedAppResourceManager = AppResourceManager()
     
-// MARK: Public Functions
+// MARK: Setup Public Functions
     
     public func sharedInstance()-> AppResourceManager{
         return AppResourceManager.sharedAppResourceManager
@@ -28,6 +28,18 @@ class AppResourceManager: NSObject {
             //Save all mapped data to DB
             NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
         }
+    }
+    
+    
+//    MARK:Core Data Opertaion Public Functions
+    
+    public func findAllCategories(sortedBy: String, ascending:Bool, withPredicate predicate:NSPredicate?)->[Category]{
+        
+        let categories = ( predicate != nil) ?
+                    Category.mr_findAllSorted(by: sortedBy, ascending: ascending, with: predicate) as! [Category] :
+                    Category.mr_findAllSorted(by: sortedBy, ascending: ascending) as! [Category]
+        
+        return categories
     }
     
 // MARK: Utility Functions

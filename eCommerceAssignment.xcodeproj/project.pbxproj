@@ -22,6 +22,10 @@
 		AC49AC8923DB7A2900CD6E02 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49AC8123DB7A2900CD6E02 /* Product+CoreDataProperties.swift */; };
 		AC49AC8A23DB7A2900CD6E02 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49AC8223DB7A2900CD6E02 /* Category+CoreDataClass.swift */; };
 		AC49AC8B23DB7A2900CD6E02 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49AC8323DB7A2900CD6E02 /* Category+CoreDataProperties.swift */; };
+		AC49AC8F23DCC2BB00CD6E02 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49AC8E23DCC2BB00CD6E02 /* CategoryViewController.swift */; };
+		AC49AC9123DCC2CF00CD6E02 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49AC9023DCC2CF00CD6E02 /* RankingViewController.swift */; };
+		AC49AC9323DCC2F100CD6E02 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49AC9223DCC2F100CD6E02 /* ProductViewController.swift */; };
+		AC49AC9523DCC30700CD6E02 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49AC9423DCC30700CD6E02 /* ProductDetailViewController.swift */; };
 		ACA0353F23D3158200BB1D3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0353E23D3158200BB1D3B /* AppDelegate.swift */; };
 		ACA0354123D3158200BB1D3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0354023D3158200BB1D3B /* SceneDelegate.swift */; };
 		ACA0354323D3158200BB1D3B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0354223D3158200BB1D3B /* HomeViewController.swift */; };
@@ -65,6 +69,10 @@
 		AC49AC8123DB7A2900CD6E02 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AC49AC8223DB7A2900CD6E02 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
 		AC49AC8323DB7A2900CD6E02 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AC49AC8E23DCC2BB00CD6E02 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		AC49AC9023DCC2CF00CD6E02 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		AC49AC9223DCC2F100CD6E02 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		AC49AC9423DCC30700CD6E02 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		ACA0353B23D3158200BB1D3B /* eCommerceAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eCommerceAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA0353E23D3158200BB1D3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA0354023D3158200BB1D3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +224,10 @@
 				ACA0353E23D3158200BB1D3B /* AppDelegate.swift */,
 				ACA0354023D3158200BB1D3B /* SceneDelegate.swift */,
 				ACA0354223D3158200BB1D3B /* HomeViewController.swift */,
+				AC49AC8E23DCC2BB00CD6E02 /* CategoryViewController.swift */,
+				AC49AC9023DCC2CF00CD6E02 /* RankingViewController.swift */,
+				AC49AC9223DCC2F100CD6E02 /* ProductViewController.swift */,
+				AC49AC9423DCC30700CD6E02 /* ProductDetailViewController.swift */,
 				ACA0354423D3158300BB1D3B /* Main.storyboard */,
 				ACA0354A23D3159E00BB1D3B /* Assets.xcassets */,
 				ACA0354C23D3159E00BB1D3B /* LaunchScreen.storyboard */,
@@ -471,11 +483,15 @@
 			files = (
 				AC49AC8423DB7A2900CD6E02 /* Ranking+CoreDataClass.swift in Sources */,
 				AC49AC8B23DB7A2900CD6E02 /* Category+CoreDataProperties.swift in Sources */,
+				AC49AC8F23DCC2BB00CD6E02 /* CategoryViewController.swift in Sources */,
 				AC49AC8A23DB7A2900CD6E02 /* Category+CoreDataClass.swift in Sources */,
 				ACA0354323D3158200BB1D3B /* HomeViewController.swift in Sources */,
+				AC49AC9123DCC2CF00CD6E02 /* RankingViewController.swift in Sources */,
+				AC49AC9323DCC2F100CD6E02 /* ProductViewController.swift in Sources */,
 				ACA0353F23D3158200BB1D3B /* AppDelegate.swift in Sources */,
 				AC49AC8923DB7A2900CD6E02 /* Product+CoreDataProperties.swift in Sources */,
 				AC49AC8823DB7A2900CD6E02 /* Product+CoreDataClass.swift in Sources */,
+				AC49AC9523DCC30700CD6E02 /* ProductDetailViewController.swift in Sources */,
 				AC49AC2B23DA2A6000CD6E02 /* HTTPSRequestManager.swift in Sources */,
 				AC49AC8723DB7A2900CD6E02 /* Variant+CoreDataProperties.swift in Sources */,
 				AC49AC2823DA253B00CD6E02 /* AppResourceManager.swift in Sources */,

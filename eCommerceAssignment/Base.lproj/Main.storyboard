@@ -40,6 +40,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="McY-Gb-PXL">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="oLf-Dh-lSx"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5T4-NV-zlI"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -58,10 +62,128 @@
                     <navigationItem key="navigationItem" id="MvV-EM-elt">
                         <barButtonItem key="rightBarButtonItem" title="Sort" id="mm0-li-mXF"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="homeTableView" destination="McY-Gb-PXL" id="d74-pV-Lf6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1019" y="-34"/>
+        </scene>
+        <!--Category View Controller-->
+        <scene sceneID="iXm-QL-tEH">
+            <objects>
+                <viewController storyboardIdentifier="CategoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k33-F6-Keb" customClass="CategoryViewController" customModule="eCommerceAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ews-9P-ymw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iNM-59-Lwv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="k33-F6-Keb" id="R3a-nV-590"/>
+                                    <outlet property="delegate" destination="k33-F6-Keb" id="e7t-cZ-kbN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iNM-59-Lwv" firstAttribute="leading" secondItem="D6R-n0-eN5" secondAttribute="leading" id="KMM-PK-XYD"/>
+                            <constraint firstItem="D6R-n0-eN5" firstAttribute="bottom" secondItem="iNM-59-Lwv" secondAttribute="bottom" id="asw-mt-ErT"/>
+                            <constraint firstItem="iNM-59-Lwv" firstAttribute="top" secondItem="D6R-n0-eN5" secondAttribute="top" id="hN4-MX-TUo"/>
+                            <constraint firstItem="D6R-n0-eN5" firstAttribute="trailing" secondItem="iNM-59-Lwv" secondAttribute="trailing" id="uUs-Ol-zVZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="D6R-n0-eN5"/>
+                    </view>
+                    <connections>
+                        <outlet property="categoryTableView" destination="iNM-59-Lwv" id="OBF-Eh-7A7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ejH-LJ-y0N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="492.75362318840581" y="-34.151785714285715"/>
+        </scene>
+        <!--Ranking View Controller-->
+        <scene sceneID="bPn-BJ-fOQ">
+            <objects>
+                <viewController storyboardIdentifier="RankingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ARL-Kc-pat" customClass="RankingViewController" customModule="eCommerceAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gYQ-zS-5E6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O29-K4-0wW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YmF-Yw-GPn" firstAttribute="trailing" secondItem="O29-K4-0wW" secondAttribute="trailing" id="14t-4W-PdY"/>
+                            <constraint firstItem="O29-K4-0wW" firstAttribute="leading" secondItem="YmF-Yw-GPn" secondAttribute="leading" id="1nS-wu-b60"/>
+                            <constraint firstItem="YmF-Yw-GPn" firstAttribute="bottom" secondItem="O29-K4-0wW" secondAttribute="bottom" id="GtY-bD-AwJ"/>
+                            <constraint firstItem="O29-K4-0wW" firstAttribute="top" secondItem="YmF-Yw-GPn" secondAttribute="top" id="ID1-d1-MtU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YmF-Yw-GPn"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLc-Xy-hLc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-241" y="-34"/>
+        </scene>
+        <!--Product View Controller-->
+        <scene sceneID="nrU-md-KYp">
+            <objects>
+                <viewController storyboardIdentifier="ProductViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OGX-kk-jMr" customClass="ProductViewController" customModule="eCommerceAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eTS-gJ-gza">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VB4-P2-csm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IeV-Vf-Awu" firstAttribute="trailing" secondItem="VB4-P2-csm" secondAttribute="trailing" id="54w-a7-Scz"/>
+                            <constraint firstItem="IeV-Vf-Awu" firstAttribute="bottom" secondItem="VB4-P2-csm" secondAttribute="bottom" id="QtH-Pd-5Gf"/>
+                            <constraint firstItem="VB4-P2-csm" firstAttribute="leading" secondItem="IeV-Vf-Awu" secondAttribute="leading" id="Uhz-3J-ToA"/>
+                            <constraint firstItem="VB4-P2-csm" firstAttribute="top" secondItem="IeV-Vf-Awu" secondAttribute="top" id="lhG-69-0f4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IeV-Vf-Awu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lSv-m5-hUB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1239" y="-34"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="isW-iC-aSz">
+            <objects>
+                <viewController id="tvo-Ds-RA8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kur-C9-Dra">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0j6-v8-QFg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lZ9-pU-9xG" firstAttribute="bottom" secondItem="0j6-v8-QFg" secondAttribute="bottom" id="Itr-Ht-HJ1"/>
+                            <constraint firstItem="0j6-v8-QFg" firstAttribute="leading" secondItem="lZ9-pU-9xG" secondAttribute="leading" id="idd-lk-WS0"/>
+                            <constraint firstItem="0j6-v8-QFg" firstAttribute="top" secondItem="lZ9-pU-9xG" secondAttribute="top" id="kNc-Cb-VBO"/>
+                            <constraint firstItem="lZ9-pU-9xG" firstAttribute="trailing" secondItem="0j6-v8-QFg" secondAttribute="trailing" id="kap-mb-3YX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lZ9-pU-9xG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YHD-Nt-Hda" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1983" y="-34"/>
         </scene>
     </scenes>
 </document>
