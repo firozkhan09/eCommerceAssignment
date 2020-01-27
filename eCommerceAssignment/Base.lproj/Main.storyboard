@@ -59,9 +59,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="MvV-EM-elt">
-                        <barButtonItem key="rightBarButtonItem" title="Sort" id="mm0-li-mXF"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="MvV-EM-elt"/>
                     <connections>
                         <outlet property="homeTableView" destination="McY-Gb-PXL" id="d74-pV-Lf6"/>
                     </connections>
@@ -115,6 +113,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O29-K4-0wW">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ARL-Kc-pat" id="l9q-wK-7qW"/>
+                                    <outlet property="delegate" destination="ARL-Kc-pat" id="xgi-4D-F71"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -126,6 +128,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YmF-Yw-GPn"/>
                     </view>
+                    <connections>
+                        <outlet property="rankingTableView" destination="O29-K4-0wW" id="UE4-Pb-6d1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLc-Xy-hLc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,6 +147,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VB4-P2-csm">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="OGX-kk-jMr" id="z9K-QQ-fia"/>
+                                    <outlet property="delegate" destination="OGX-kk-jMr" id="RXU-lF-cNn"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -153,10 +162,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IeV-Vf-Awu"/>
                     </view>
+                    <connections>
+                        <outlet property="productTableView" destination="VB4-P2-csm" id="jlt-pD-zdG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSv-m5-hUB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1239" y="-34"/>
+            <point key="canvasLocation" x="1237.68115942029" y="-34.151785714285715"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="isW-iC-aSz">

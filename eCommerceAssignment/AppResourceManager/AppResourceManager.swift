@@ -20,7 +20,7 @@ class AppResourceManager: NSObject {
     }
     
     public func setupInitialApplicationData(){
-        if let initialDict = getJSONDataDictionary() as? NSDictionary, let categories = initialDict["categories"] as? [[String: Any]], let rankings = initialDict["rankings"] as? [[String: Any]] {
+        if let initialDict = getJSONDataDictionary(), let categories = initialDict["categories"] as? [[String: Any]], let rankings = initialDict["rankings"] as? [[String: Any]] {
             //Add categories to DB
             insertCategories(forCategorysArray: categories)
             insertRankings(forRankings: rankings)
@@ -42,8 +42,25 @@ class AppResourceManager: NSObject {
         return categories
     }
     
+    public func findAllRankings(sortedBy: String, ascending:Bool, withPredicate predicate:NSPredicate?)->[Ranking]{
+        let rankings = (predicate != nil) ?
+                    Ranking.mr_findAllSorted(by: sortedBy, ascending: ascending, with: predicate) as! [Ranking] :
+                    Ranking.mr_findAllSorted(by: sortedBy, ascending: ascending) as! [Ranking]
+        
+        return rankings
+    }
+    
+    
+    public func findAllProducts(sortedBy:String, ascending:Bool, withPredicate predicate:NSPredicate?)->[Product]{
+        let products = (predicate != nil) ?
+                    Product.mr_findAllSorted(by: sortedBy, ascending: ascending, with: predicate) as! [Product] :
+                    Product.mr_findAllSorted(by: sortedBy, ascending: ascending) as! [Product]
+        
+        return products
+    }
+    
 // MARK: Utility Functions
-    private func getJSONDataDictionary()-> NSDictionary{
+    private func getJSONDataDictionary()-> NSDictionary?{
         if let path = Bundle.main.path(forResource: "InitialData", ofType: "json") {
             do {
                   let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
@@ -56,7 +73,7 @@ class AppResourceManager: NSObject {
                    // handle error
               }
         }
-        return NSDictionary()
+        return nil
     }
     
     private func insertCategories(forCategorysArray categories: [[String:Any]]){

@@ -43,6 +43,9 @@ class CategoryViewController: UIViewController, UITableViewDataSource, UITableVi
         if !hasProducts, let categoryViewController = viewController as? CategoryViewController{
             categoryViewController.predicate = NSPredicate(format: "parentCategory.id=%dl",categoryID) as NSPredicate
         }
+        else if hasProducts, let productViewController = viewController as? ProductViewController{
+            productViewController.predicate = NSPredicate(format: "category.id=%dl",categoryID) as NSPredicate
+        }
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 
