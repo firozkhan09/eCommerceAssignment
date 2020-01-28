@@ -141,9 +141,10 @@ class AppResourceManager: NSObject {
             if productObject.isInserted{
                 productObject.name = product["name"] as? String
                 productObject.tax = product["tax"] as? NSObject
+                productObject.dateAdded = getDate(dateString: product["date_added"] as? String)
                 productObject.category = category
                 let variantSet = findOrCreateProductVariantSet(forVariants: product["variants"]! as! [[String : Any]])
-                productObject.addToVarients(variantSet)
+                productObject.addToVariants(variantSet)
             }
             productObjectArray.add(productObject)
         }
@@ -162,5 +163,12 @@ class AppResourceManager: NSObject {
             verientObjectArray.add(variantObject)
         }
         return NSSet(array: verientObjectArray as! [Any])
+    }
+    
+    private func getDate(dateString:String?)->Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss.SSSX"
+        let date = dateFormatter.date(from: dateString!)
+        return date
     }
 }

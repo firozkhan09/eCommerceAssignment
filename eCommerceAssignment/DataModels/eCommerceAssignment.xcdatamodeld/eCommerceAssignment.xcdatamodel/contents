@@ -16,7 +16,7 @@
         <attribute name="tax" optional="YES" attributeType="Transformable"/>
         <attribute name="viewedCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="products" inverseEntity="Category"/>
-        <relationship name="varients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Variant"/>
+        <relationship name="variants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Variant"/>
     </entity>
     <entity name="Ranking" representedClassName="Ranking" syncable="YES" codeGenerationType="class">
         <attribute name="rank" optional="YES" attributeType="String"/>

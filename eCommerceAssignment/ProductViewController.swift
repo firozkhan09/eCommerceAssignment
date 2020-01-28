@@ -100,6 +100,17 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell!
     }
 
+//    MARK: TableViewCell Delegate Methods
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+            let product = productList[indexPath.row]
+            let productDetailViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ProductDetailViewController") as! ProductDetailViewController
+            productDetailViewController.product = product
+            self.navigationController?.pushViewController(productDetailViewController, animated: true)
+            
+        }
+
+    
 
 //    MARK: Utility Functions
     
