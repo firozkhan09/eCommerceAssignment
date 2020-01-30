@@ -12,27 +12,43 @@ import CoreData
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var menuItems = ["Category", "Ranking"]
+    let menuItems = ["Category", "Ranking"]
+    
+    let waitingMassage = "Wait while initialising the application..."
+    
+    let retryMassage = "Check your internet connection and tap on RETRY button to initialise the application"
     
     @IBOutlet weak private var homeTableView: UITableView!
     
+    @IBOutlet weak private var msgLabel: UILabel!
+    
+    @IBOutlet weak private var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.title = "Menu"
-        
         //Setup initial Data
-        AppResourceManager.sharedAppResourceManager.setupInitialApplicationData { (success) in
-            if success{
-                print("Sucess")
-            }
-            else{
-                print("Fail")
+        self.title = "Menu"
+        setupApplicationData()
+    }
+    
+//    MARK: Setup Functions
+    @objc private func setupApplicationData(){
+        navigationItem.rightBarButtonItems = []
+        msgLabel.text = waitingMassage
+        spinner.isHidden = false
+        AppResourceManager.sharedAppResourceManager.setupInitialApplicationData(fromLocalResource: false) { (success) in            
+            DispatchQueue.main.async {
+                self.homeTableView.isHidden = !success
+                if !success{
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "RETRY", style: .plain, target: self, action: #selector(self.setupApplicationData))
+                    self.msgLabel.text = self.retryMassage
+                    self.spinner.isHidden = true
+                }
             }
         }
-        
     }
+    
 
 //    MARK: TableViewCell Datasource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

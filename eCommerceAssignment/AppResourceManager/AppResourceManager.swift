@@ -13,6 +13,10 @@ class AppResourceManager: NSObject {
     
     static let sharedAppResourceManager = AppResourceManager()
     
+    static let dataURL = URL(string: "https://stark-spire-93433.herokuapp.com/json")
+    
+    static let localDataPath = Bundle.main.path(forResource: "InitialData", ofType: "json")
+    
 // MARK: Setup Public Functions
     
     public func sharedInstance()-> AppResourceManager{
@@ -20,23 +24,29 @@ class AppResourceManager: NSObject {
     }
     
     
-    public func setupInitialApplicationData(withCompletionBlock completion: @escaping(_ status:Bool)->Void){
-        if let initialDict = getJSONDataDictionary(), let categories = initialDict["categories"] as? [[String: Any]], let rankings = initialDict["rankings"] as? [[String: Any]] {
-            
-            DispatchQueue.global(qos: .userInitiated).async {
-                let context = NSManagedObjectContext.mr_()
-                
-                //Add data to context
-                self.insertCategories(forCategorysArray: categories, inContext: context)
-                self.insertRankings(forRankings: rankings, inContext: context)
-                
-                //Save all mapped data to DB
-                context.mr_saveToPersistentStore { (success, error) in
-                    completion(success)
+    public func setupInitialApplicationData(fromLocalResource localResource:Bool , withCompletionBlock completion: @escaping(_ status:Bool)->Void){
+        
+        getDataDictionary(fromLocalResource: localResource) { (dataDictionary) in
+            if let initialDict = dataDictionary, let categories = initialDict["categories"] as? [[String: Any]], let rankings = initialDict["rankings"] as? [[String: Any]] {
+                DispatchQueue.global(qos: .userInitiated).async {
+                    
+                    let context = NSManagedObjectContext.mr_()
+                    
+                    //Add data to context
+                    self.insertCategories(forCategorysArray: categories, inContext: context)
+                    self.insertRankings(forRankings: rankings, inContext: context)
+                    
+                    //Save all mapped data to DB
+                    context.mr_saveToPersistentStore { (success, error) in
+                        completion(success)
+                    }
                 }
             }
-            
+            else{
+            completion(false)
+            }
         }
+        
     }
     
     
@@ -69,20 +79,34 @@ class AppResourceManager: NSObject {
     }
     
 // MARK: Utility Functions
-    private func getJSONDataDictionary()-> NSDictionary?{
-        if let path = Bundle.main.path(forResource: "InitialData", ofType: "json") {
+    
+    private func getDataDictionary(fromLocalResource localResource:Bool, withCompletion completion: @escaping(_ dataDict: NSDictionary?)->Void){
+        if localResource{
+            getLocalResourceData(forPath: AppResourceManager.localDataPath) { (responseDataDict) in
+                completion(responseDataDict)
+            }
+        }
+        else{
+            HTTPSRequestManager.sharedHTTPSRequestManager.request(forURL: AppResourceManager.dataURL!) { (responseDataDict, error) in
+                completion(responseDataDict)
+            }
+        }
+    }
+    
+    private func getLocalResourceData(forPath path:String?, withCompletion completion:@escaping(_ dataDict: NSDictionary?)->Void){
+        if let path = path {
             do {
                   let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                  let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                  if let jsonResult = jsonResult as? NSDictionary{
-                            // do stuff
-                    return jsonResult
-                  }
+                  let responseDataDict = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? NSDictionary
+                completion(responseDataDict)
               } catch {
                    // handle error
+                completion(nil)
               }
         }
-        return nil
+        else{
+            completion(nil)
+        }
     }
     
     private func insertCategories(forCategorysArray categories: [[String:Any]], inContext context:NSManagedObjectContext){

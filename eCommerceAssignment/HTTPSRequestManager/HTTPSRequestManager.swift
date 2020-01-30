@@ -12,13 +12,25 @@ class HTTPSRequestManager: NSObject {
     
     static let sharedHTTPSRequestManager = HTTPSRequestManager()
     
-    static let dataURL = "https://stark-spire-93433.herokuapp.com/json"
-    
     public func sharedInstance()-> HTTPSRequestManager{
         return HTTPSRequestManager.sharedHTTPSRequestManager
     }
     
-    public func getDataResponse(forURL url:URL){
+    public func request(forURL url:URL, withCompletionHandler completionHandler:  @escaping (_ responseDict: NSDictionary?, _ error: Error?) -> Void){
+        let task  = URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
+            if (data != nil){
+                do{
+                    //Convert response data to JSON
+                    let responseDataDict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                    completionHandler(responseDataDict, error)
+                } catch {
+                    completionHandler(nil, error)
+                }
+            }else{
+                completionHandler(nil, error)
+            }
+        }
         
+        task.resume()
     }
 }
