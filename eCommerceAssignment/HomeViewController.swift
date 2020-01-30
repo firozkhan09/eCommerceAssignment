@@ -23,7 +23,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.title = "Menu"
         
         //Setup initial Data
-        AppResourceManager.sharedAppResourceManager.setupInitialApplicationData()
+        AppResourceManager.sharedAppResourceManager.setupInitialApplicationData { (success) in
+            if success{
+                print("Sucess")
+            }
+            else{
+                print("Fail")
+            }
+        }
         
     }
 
